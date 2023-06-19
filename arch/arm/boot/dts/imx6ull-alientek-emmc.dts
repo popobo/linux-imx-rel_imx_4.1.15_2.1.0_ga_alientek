@@ -165,6 +165,16 @@
         led-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
         status = "okay";
     };
+
+    gpiobeep {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        compatible = "atkalpha-beep";
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_beep>;
+        beep-gpio = <&gpio5 1 GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
 };
 
 &cpu0 {
@@ -587,6 +597,12 @@
         pinctrl_led: ledgrp {
             fsl,pins = <
                 MX6UL_PAD_GPIO1_IO03__GPIO1_IO03 0x10B0
+            >;
+        };
+
+        pinctrl_beep: beepgrp {
+            fsl,pins = <
+                MX6ULL_PAD_SNVS_TAMPER1__GPIO5_IO01 0x10B0
             >;
         };
     };
