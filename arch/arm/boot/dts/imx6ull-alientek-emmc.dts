@@ -187,6 +187,17 @@
         interrupts = <18 IRQ_TYPE_EDGE_BOTH>; /* FALLING RISING */
         status = "okay";
     };
+
+    dtsleds {
+        compatible = "gpio-leds";
+        
+        led0 {
+            label = "red";
+            gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
+            linux,default-trigger = "heartbeat";
+            default-state = "on";
+        };
+    };
 };
 
 &cpu0 {
